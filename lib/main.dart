@@ -1,6 +1,7 @@
 import 'package:assigment1/assignment/ui/main_page.dart';
 import 'package:assigment1/forms/from_ui.dart';
 import 'package:assigment1/responsive/responsive_screen.dart';
+import 'package:assigment1/ui/register/main_register_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-      home: FormUi(),
+      home: MainRegister(),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,

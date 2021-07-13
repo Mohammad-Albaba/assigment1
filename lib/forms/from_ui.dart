@@ -3,12 +3,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // *************Form Login Screen ************************
+enum Gender{Male, Female}
 class FormUi extends StatefulWidget {
+
   @override
   _FormUiState createState() => _FormUiState();
 }
 
 class _FormUiState extends State<FormUi> {
+  Gender groupValue;
   String value = '';
 
  TextEditingController emailController = TextEditingController();
@@ -16,6 +19,17 @@ class _FormUiState extends State<FormUi> {
  TextEditingController passwordController = TextEditingController();
 
  bool checkBoxValue = false;
+  String email;
+  setEmail(String email){
+    this.email = email;
+  }
+ String password;
+ setPassword(String password){
+   this.password = password;
+ }
+  onSaved(v){
+    setPassword(v);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +41,8 @@ class _FormUiState extends State<FormUi> {
       ),
       body: Column(
         children: [
-          CustomTextField('Email',emailController),
-          CustomTextField('Password',passwordController, true),
+          CustomTextField('Email',emailController,onSaved),
+          CustomTextField('Password',passwordController, onSaved,true),
           CheckboxListTile(
               title: Text(
                 'Accept'
@@ -39,6 +53,31 @@ class _FormUiState extends State<FormUi> {
                setState(() {});
               },
           ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text('Gender'),
+                RadioListTile(
+                    title: Text('Male'),
+                    value: Gender.Male,
+                    groupValue: groupValue,
+                    onChanged: (v){
+                      this.groupValue = v;
+                      setState(() {});
+                    }),
+                RadioListTile(
+                    title: Text('Female'),
+                    value: Gender.Female,
+                    groupValue: groupValue,
+                    onChanged: (v){
+                      this.groupValue = v;
+                      setState(() {});
+                    }),
+            ],),
+          ),
+
           ElevatedButton(onPressed: (){
               if (checkBoxValue){
                 print(emailController.text);
@@ -51,6 +90,7 @@ class _FormUiState extends State<FormUi> {
               child: Text(
             'Print TextField Content'
           )),
+
         ],
       ),
     );
