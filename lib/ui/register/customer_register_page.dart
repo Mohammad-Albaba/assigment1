@@ -1,6 +1,6 @@
 import 'package:assigment1/forms/models/form_user.dart';
 import 'package:assigment1/forms/widgets/custom_textfield.dart';
-import 'package:assigment1/ui/home/home_page.dart';
+import 'package:assigment1/ui/home/ui/home_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomerRegister extends StatelessWidget {
@@ -68,13 +68,14 @@ class CustomerRegister extends StatelessWidget {
             child: Text(
               'Sign Up As Customer'
             ),
-           onPressed: (){
+           onPressed: () async {
             if(formKey.currentState.validate()){
               formKey.currentState.save();
               FormUser formUser = FormUser.customer(email: email, password: password);
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+              String result = await Navigator.of(context).push(MaterialPageRoute(builder: (context){
                 return HomePage(formUser);
               }));
+              print(result);
             }
             }
             ),

@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
           ElevatedButton(
             child: Text('SignOut'),
             onPressed: (){
-              Navigator.of(context).pop();
+              Navigator.of(context).pop('hello this message from home page');
             },
           ),
         ],

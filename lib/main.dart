@@ -1,5 +1,6 @@
 import 'package:assigment1/assignment/ui/main_page.dart';
 import 'package:assigment1/forms/from_ui.dart';
+import 'package:assigment1/forms/router/router.dart';
 import 'package:assigment1/responsive/responsive_screen.dart';
 import 'package:assigment1/ui/register/main_register_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      navigatorKey: AppRouter.router.navKey,
       home: MainRegister(),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

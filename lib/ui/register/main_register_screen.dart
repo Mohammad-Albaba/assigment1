@@ -1,7 +1,7 @@
 import 'package:assigment1/forms/models/form_user.dart';
 import 'package:assigment1/forms/models/form_user.dart';
 import 'package:assigment1/forms/widgets/custom_textfield.dart';
-import 'package:assigment1/ui/home/home_page.dart';
+import 'package:assigment1/ui/home/ui/home_page.dart';
 import 'package:assigment1/ui/register/customer_register_page.dart';
 import 'package:assigment1/ui/register/mershant_register_page.dart';
 import 'package:flutter/cupertino.dart';
