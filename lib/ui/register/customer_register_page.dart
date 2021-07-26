@@ -1,3 +1,4 @@
+import 'package:assigment1/forms/helpers/shared_prefrences_helper.dart';
 import 'package:assigment1/forms/models/form_user.dart';
 import 'package:assigment1/forms/widgets/custom_textfield.dart';
 import 'package:assigment1/ui/home/ui/home_page.dart';
@@ -69,14 +70,16 @@ class CustomerRegister extends StatelessWidget {
               'Sign Up As Customer'
             ),
            onPressed: () async {
+
             if(formKey.currentState.validate()){
               formKey.currentState.save();
               FormUser formUser = FormUser.customer(email: email, password: password);
-              String result = await Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                return HomePage(formUser);
-              }));
-              print(result);
-            }
+              SpHelper.spHelper.saveUser(formUser);
+            //   String result = await Navigator.of(context).push(MaterialPageRoute(builder: (context){
+            //     return HomePage(formUser);
+            //   }));
+            //   print(result);
+             }
             }
             ),
         ],

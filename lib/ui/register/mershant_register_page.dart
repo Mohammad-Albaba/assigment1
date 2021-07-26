@@ -1,3 +1,4 @@
+import 'package:assigment1/forms/helpers/shared_prefrences_helper.dart';
 import 'package:assigment1/forms/models/form_user.dart';
 import 'package:assigment1/forms/router/router.dart';
 import 'package:assigment1/forms/widgets/custom_textfield.dart';
@@ -95,7 +96,13 @@ class _MershantRegisterState extends State<MershantRegister> {
               ),
               onPressed: () async {
                 FormUser formUser = FormUser.mershant(email: email, password: password, phone: phone, shopName: shopName, bio: bio, category: category, shopAddress: shopAddress);
-                AppRouter.router.pushFunction(HomePage(formUser));
+                SpHelper.spHelper.saveUser(formUser);
+                Future<String> result =  Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                    return HomePage(formUser);
+                  }));
+                  print(result);
+
+                // AppRouter.router.pushFunction(HomePage(formUser));
                 // if(formKey.currentState.validate()){
                 //   formKey.currentState.save();
                 //   FormUser formUser = FormUser.mershant(email: email, password: password, phone: phone, shopName: shopName, bio: bio, category: category, shopAddress: shopAddress);
